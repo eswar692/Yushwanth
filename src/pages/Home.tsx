@@ -19,9 +19,6 @@ import CardCarousel from "../Genaral/CardsCarousel";
 import { business_name, person_name, phone_number, whatsapp_number } from "../Genaral/secret";
 import ProblemGrid from "../Genaral/ProblemGrid";
 import { Link } from "react-router-dom";
-import GoogleMapSection from "../Genaral/MapComponent";
-import GurujiVideo from "../Genaral/gurujivideo";
-import KannadaAstrologer from "../Genaral/Paragraph";
 
 const Home = () => {
   return (
@@ -32,12 +29,12 @@ const Home = () => {
 "
     >
       <Carousel />
-      <KannadaAstrologer/>
-      <GurujiVideo/>
+      {/* <KannadaAstrologer/> */}
+      {/* <GurujiVideo/> */}
       
       <ProblemGrid/>
       
-        <GoogleMapSection/>
+        {/* <GoogleMapSection/> */}
       <CardCarousel />
       <Problems />
       <AboutAstrologer />
@@ -314,7 +311,7 @@ const AboutAstrologer = () => {
             <div className="relative w-full h-full overflow-hidden rounded-[28px] bg-[#eee5d6] shadow-[0_25px_70px_rgba(45,27,18,0.18)]">
 
               <img
-                src="https://i.pinimg.com/736x/0b/08/17/0b0817d8ff18867dc12e9c13155eff3f.jpg"
+                src="https://i.pinimg.com/736x/5e/77/5d/5e775da1dcfbb1d27175de713a84372a.jpg"
                 alt={`${person_name} - Astrologer`}
                 className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
               />

@@ -1,11 +1,11 @@
-export const phone_number = "+919902306511"
-export const whatsapp_number = "919902306511"
+export const phone_number = "+916363973286"
+export const whatsapp_number = "916363973286"
 
-export const business_name = "ಕೇರಳ ಕೊಳ್ಳೇಗಾಲದ ಮಾಂತ್ರಿಕ ಜ್ಯೋತಿಷ್ಯರು"
-export const person_name = "Pandith Purushotham"
+export const business_name = "Adhishakthi Astrology"
+export const person_name = "Adhishakthi Astrology"
 
 export const email_address = "";
 
 export const address = "";
 export const instagram_handle = "";
-export const google_maps_url = "https://maps.app.goo.gl/VabTtSFevxmM1Ua87 "
+export const google_maps_url = "adhishakthiastrologer.com "

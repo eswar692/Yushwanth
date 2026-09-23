@@ -1,4 +1,3 @@
-
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import {
@@ -7,9 +6,15 @@ import {
   Phone,
   Sparkles,
   ArrowRight,
+  Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { business_name, person_name, phone_number } from "./secret";
+
+import {
+  business_name,
+  person_name,
+  phone_number,
+} from "./secret";
 
 export default function Carousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -27,67 +32,70 @@ export default function Carousel() {
     {
       id: 1,
       img: "https://i.pinimg.com/736x/9e/1f/9e/9e1f9ee154cdc86962a0747c081cb109.jpg",
-      title:business_name
+      title: business_name,
+      category: "Traditional Astrology",
     },
     {
       id: 2,
       img: "https://i.pinimg.com/736x/7a/8d/9f/7a8d9f56634bf50b55e371c60defb1ce.jpg",
-      title:"ಸ್ತ್ರೀ-ಪುರುಷ ವಶೀಕರಣ"
+      title: "ಸ್ತ್ರೀ-ಪುರುಷ ವಶೀಕರಣ",
+      category: "Relationship Guidance",
     },
     {
       id: 3,
       img: "https://i.pinimg.com/1200x/f1/8e/c5/f18ec5f77c36d2bd82804180365c7608.jpg",
-      title:"ಸಂತಾನದೋಷ"
+      title: "ಸಂತಾನದೋಷ",
+      category: "Spiritual Guidance",
     },
     {
       id: 4,
       img: "https://i.pinimg.com/736x/8d/95/ff/8d95fff806cac0d2308fcd7e60d4dab2.jpg",
-      title:"ಕೋರ್ಟ್ ಕೇಸ್"
-
+      title: "ಕೋರ್ಟ್ ಕೇಸ್",
+      category: "Legal Matters",
     },
     {
       id: 5,
       img: "https://i.pinimg.com/736x/5f/93/38/5f9338bbf17b820c59383734c03302b8.jpg",
-      title:"ಅಣ್ಣತಮ್ಮ ಅತ್ತೆ-ಸೊಸೆ ಕಿರಿಕಿರಿ"
-
+      title: "ಅಣ್ಣತಮ್ಮ ಅತ್ತೆ-ಸೊಸೆ ಕಿರಿಕಿರಿ",
+      category: "Family Guidance",
     },
     {
       id: 6,
       img: "https://i.pinimg.com/736x/0b/ea/85/0bea85319c7aad2be9a17715c0726a20.jpg",
-      title:"ತಾಂತ್ರಿಕ ಸಮಸ್ಯೆ"
-
+      title: "ತಾಂತ್ರಿಕ ಸಮಸ್ಯೆ",
+      category: "Spiritual Guidance",
     },
     {
       id: 7,
       img: "https://i.pinimg.com/736x/62/b3/58/62b358e267e59d97cad63c49de2f8b44.jpg",
-      title:"ಗಂಡ ಹೆಂಡತಿ ಕಲಹ "
-
+      title: "ಗಂಡ ಹೆಂಡತಿ ಕಲಹ",
+      category: "Marriage Guidance",
     },
     {
       id: 8,
       img: "https://i.pinimg.com/736x/e5/15/02/e51502ea14aa82845d23f7cefe17e766.jpg",
-      title:"ಕುಟುಂಬ ಸಮಸ್ಯೆ"
-
+      title: "ಕುಟುಂಬ ಸಮಸ್ಯೆ",
+      category: "Family Guidance",
     },
   ];
 
-  /* ---------------------------------------- */
+  /* ================================================== */
   /* AUTOPLAY */
-  /* ---------------------------------------- */
+  /* ================================================== */
 
   useEffect(() => {
     if (!emblaApi) return;
 
     const autoplay = setInterval(() => {
       emblaApi.scrollNext();
-    }, 4500);
+    }, 5000);
 
     return () => clearInterval(autoplay);
   }, [emblaApi]);
 
-  /* ---------------------------------------- */
+  /* ================================================== */
   /* ACTIVE SLIDE */
-  /* ---------------------------------------- */
+  /* ================================================== */
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -107,6 +115,10 @@ export default function Carousel() {
     };
   }, [emblaApi]);
 
+  /* ================================================== */
+  /* NAVIGATION */
+  /* ================================================== */
+
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev();
   }, [emblaApi]);
@@ -116,215 +128,289 @@ export default function Carousel() {
   }, [emblaApi]);
 
   return (
-    <section className="relative w-full bg-[#1c100b]">
+    <section className="relative w-full overflow-hidden bg-[#100b08]">
 
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
       {/* CAROUSEL */}
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
 
       <div
         ref={emblaRef}
-        className="overflow-hidden w-full"
+        className="w-full overflow-hidden"
       >
         <div className="flex">
 
-          {slides.map((slide) => (
+          {slides.map((slide, index) => (
+
             <div
               key={slide.id}
-              className="relative flex-[0_0_100%] min-w-0 h-[72vh] min-h-[560px] md:h-[78vh] md:min-h-[650px] overflow-hidden"
+              className="relative min-w-0 flex-[0_0_100%] overflow-hidden"
             >
 
+              {/* ================================================== */}
               {/* IMAGE */}
-              <img
-                src={slide.img}
-                alt={`${business_name} astrology consultation`}
-                className="absolute inset-0 w-full h-full object-cover scale-[1.02]"
-              />
+              {/* ================================================== */}
 
-              {/* ---------------------------------------- */}
-              {/* IMAGE OVERLAY */}
-              {/* ---------------------------------------- */}
+              <div className="relative h-[78vh] min-h-[600px] md:h-[82vh] md:min-h-[680px]">
 
-              <div className="absolute inset-0 bg-black/45" />
+                <img
+                  src={slide.img}
+                  alt={`${business_name} - ${slide.title}`}
+                  className="absolute inset-0 h-full w-full scale-[1.02] object-cover"
+                />
 
-              <div className="absolute inset-0 bg-gradient-to-r from-[#170c07]/90 via-[#1c100b]/45 to-transparent" />
+                {/* ================================================== */}
+                {/* OVERLAYS */}
+                {/* ================================================== */}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#170c07]/80 via-transparent to-black/20" />
+                {/* Dark base */}
+                <div className="absolute inset-0 bg-[#100b08]/35" />
 
-              {/* Gold glow */}
-              <div className="absolute -left-24 top-1/3 w-72 h-72 rounded-full bg-[#d0a54d]/10 blur-3xl" />
+                {/* Left cinematic gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#100b08]/95 via-[#100b08]/65 to-[#100b08]/10" />
 
-              {/* ---------------------------------------- */}
-              {/* CONTENT */}
-              {/* ---------------------------------------- */}
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#100b08]/90 via-transparent to-[#100b08]/10" />
 
-              <div className="relative z-10 h-full max-w-[1400px] mx-auto px-5 md:px-10 flex items-center">
+                {/* Gold atmosphere */}
+                <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-[#cba956]/10 blur-[100px]" />
 
-                <div className="max-w-3xl pt-10 md:pt-0">
+                {/* ================================================== */}
+                {/* CONTENT */}
+                {/* ================================================== */}
 
-                  {/* Small Label */}
-                  <div className="flex items-center gap-2 mb-5">
-                    <div className="flex items-center justify-center w-9 h-9 rounded-full border border-[#e1bd69]/60 bg-[#1c100b]/50 backdrop-blur-sm">
-                      <Sparkles className="w-4 h-4 text-[#e5c46f]" />
+                <div className="relative z-10 mx-auto flex h-full max-w-[1500px] items-center px-5 md:px-8">
+
+                  <div className="max-w-3xl pb-8 pt-16 md:pb-0 md:pt-0">
+
+                    {/* ================================================== */}
+                    {/* CATEGORY */}
+                    {/* ================================================== */}
+
+                    <div className="mb-6 flex items-center gap-3">
+
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8b667]/40 bg-[#160d09]/50 backdrop-blur-md">
+
+                        <Sparkles className="h-4 w-4 text-[#e0c477]" />
+
+                      </div>
+
+                      <div>
+
+                        <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#d8b667] md:text-[10px]">
+                          {slide.category}
+                        </p>
+
+                        <div className="mt-1 h-px w-8 bg-[#cba956]" />
+
+                      </div>
+
                     </div>
 
-                    <span className="open-sans text-xs md:text-sm font-bold tracking-[0.22em] text-[#e6c878]">
-                      TRADITIONAL ASTROLOGY
-                    </span>
+                    {/* ================================================== */}
+                    {/* MAIN TITLE */}
+                    {/* ================================================== */}
+
+                    {index === 0 ? (
+                      <>
+                        <h1 className="montserrat max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-[#fbf2df] drop-shadow-2xl sm:text-5xl md:text-7xl">
+
+                          {business_name}
+
+                        </h1>
+
+                        <div className="my-5 flex items-center gap-3">
+
+                          <span className="h-[2px] w-16 bg-[#d2ae5f] md:w-24" />
+
+                          <span className="h-2 w-2 rotate-45 bg-[#d2ae5f]" />
+
+                        </div>
+
+                        <h2 className="montserrat text-xl font-bold text-[#dfc477] sm:text-2xl md:text-3xl">
+
+                          Pandit{" "}
+
+                          <span className="text-white">
+                            {person_name}
+                          </span>
+
+                        </h2>
+                      </>
+                    ) : (
+                      <>
+                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#c9aa63]">
+                          {slide.category}
+                        </p>
+
+                        <h1 className="montserrat max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#fbf2df] drop-shadow-2xl sm:text-5xl md:text-6xl">
+                          {business_name}
+                        </h1>
+
+                        <div className="my-5 flex items-center gap-3">
+
+                          <span className="h-[2px] w-14 bg-[#d2ae5f] md:w-20" />
+
+                          <span className="h-2 w-2 rotate-45 bg-[#d2ae5f]" />
+
+                        </div>
+
+                        <h2 className="montserrat text-lg font-semibold text-[#dfc477] md:text-2xl">
+                          Traditional Guidance by{" "}
+                          <span className="text-white">
+                            {person_name}
+                          </span>
+                        </h2>
+                      </>
+                    )}
+
+                    {/* ================================================== */}
+                    {/* DESCRIPTION */}
+                    {/* ================================================== */}
+
+                    <p className="mt-5 max-w-2xl text-sm leading-7 text-[#e2d7c8] sm:text-base md:text-lg md:leading-8">
+                      Traditional guidance for relationships, marriage,
+                      career, family and important life decisions.
+                    </p>
+
+                    <p className="mt-2 hidden max-w-2xl text-sm leading-7 text-[#b8aa9b] sm:block">
+                      Personalized consultations rooted in traditional
+                      wisdom, thoughtful listening and individual guidance.
+                    </p>
+
+                    {/* ================================================== */}
+                    {/* CTA */}
+                    {/* ================================================== */}
+
+                    <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+
+                      <a
+                        href={`tel:${phone_number}`}
+                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#cba956] px-7 py-3.5 montserrat text-xs font-bold text-[#160e09] shadow-[0_10px_35px_rgba(203,169,86,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e0c477]"
+                      >
+
+                        <Phone className="h-4 w-4 transition-transform group-hover:rotate-12" />
+
+                        Call for Consultation
+
+                      </a>
+
+                      <Link
+                        to="/services"
+                        className="group inline-flex items-center justify-center gap-2 rounded-full border border-[#d5b566]/45 bg-white/[0.06] px-7 py-3.5 montserrat text-xs font-bold text-[#ead493] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.12]"
+                      >
+
+                        Explore Services
+
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+
+                      </Link>
+
+                    </div>
+
                   </div>
-
-                  {/* Business Name */}
-                  <h1 className="montserrat font-extrabold text-4xl sm:text-5xl md:text-7xl leading-[1.05] tracking-tight text-[#fff8e9] drop-shadow-2xl">
-                    {slide.title}
-                  </h1>
-
-                  {/* Gold line */}
-                  <div className="flex items-center gap-3 my-5">
-                    <span className="w-16 md:w-24 h-[2px] bg-[#d4ad58]" />
-                    <span className="w-2 h-2 rotate-45 bg-[#d4ad58]" />
-                  </div>
-
-                  {/* Pandit */}
-                  <h2 className="montserrat text-xl sm:text-2xl md:text-4xl font-bold text-[#f1d58b]">
-                    Pandit{" "}
-                    <span className="text-white">
-                      {person_name}
-                    </span>
-                  </h2>
-
-                  {/* Description */}
-                  <p className="open-sans mt-5 text-base sm:text-lg md:text-xl leading-8 text-[#eee4d7] max-w-2xl">
-                    Traditional guidance for relationships, marriage,
-                    career, family and important life decisions.
-                  </p>
-
-                  <p className="hidden sm:block open-sans mt-2 text-sm md:text-base leading-7 text-[#cfc1b2] max-w-2xl">
-                    Personalized astrology consultations with an emphasis on
-                    traditional wisdom, clarity and thoughtful guidance.
-                  </p>
-
-                  {/* ---------------------------------------- */}
-                  {/* CTA BUTTONS */}
-                  {/* ---------------------------------------- */}
-
-                  <div className="flex flex-col sm:flex-row gap-3 mt-7">
-
-                    <a
-                      href={`tel:${phone_number}`}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#8b1e1e] text-white montserrat font-bold shadow-xl hover:bg-[#a32727] hover:-translate-y-0.5 transition-all"
-                    >
-                      <Phone className="w-5 h-5" />
-                      Call for Consultation
-                    </a>
-
-                    <Link
-                      to="/services"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#fff8ea]/10 backdrop-blur-md border border-[#e0c477]/50 text-[#f6df9b] montserrat font-bold hover:bg-[#fff8ea]/20 transition-all"
-                    >
-                      Explore Services
-                      <ArrowRight className="w-5 h-5" />
-                    </Link>
-
-                  </div>
-
                 </div>
-              </div>
 
-              {/* ---------------------------------------- */}
-              {/* SINCE 1956 BADGE */}
-              {/* ---------------------------------------- */}
+                {/* ================================================== */}
+                {/* TRUST BADGE */}
+                {/* ================================================== */}
 
-              <div className="absolute hidden md:flex right-10 top-10 z-20 w-28 h-28 rounded-full border border-[#e0bf6c]/60 bg-[#1b0e09]/60 backdrop-blur-md items-center justify-center text-center shadow-2xl">
+                <div className="absolute right-8 top-8 z-20 hidden h-28 w-28 items-center justify-center rounded-full border border-[#d5b566]/40 bg-[#120b08]/55 text-center shadow-2xl backdrop-blur-md lg:flex">
 
-                <div>
-                  <p className="text-[9px] tracking-[0.2em] text-[#bfa05c]">
-                    TRUSTED
-                  </p>
+                  <div>
 
-                  <p className="montserrat text-2xl font-extrabold text-[#f2d587]">
-                    1956
-                  </p>
+                    <Star className="mx-auto mb-1 h-3 w-3 fill-[#d5b566] text-[#d5b566]" />
 
-                  <p className="text-[9px] tracking-[0.15em] text-[#bfa05c]">
-                    ONWARDS
-                  </p>
+                    <p className="text-[8px] font-semibold uppercase tracking-[0.2em] text-[#a9956c]">
+                      Trusted
+                    </p>
+
+                    <p className="montserrat text-2xl font-extrabold text-[#e4c674]">
+                      1956
+                    </p>
+
+                    <p className="text-[8px] font-semibold uppercase tracking-[0.18em] text-[#a9956c]">
+                      Onwards
+                    </p>
+
+                  </div>
+
                 </div>
 
               </div>
 
             </div>
+
           ))}
+
         </div>
       </div>
 
-      {/* ---------------------------------------- */}
-      {/* LEFT BUTTON */}
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
+      {/* PREVIOUS */}
+      {/* ================================================== */}
 
       <button
         onClick={scrollPrev}
         aria-label="Previous slide"
-        className="absolute z-30 left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1c100b]/70 backdrop-blur-md border border-[#e0bf6c]/40 text-[#f0d48a] flex items-center justify-center shadow-xl hover:bg-[#8b1e1e] hover:border-[#8b1e1e] transition-all"
+        className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#d5b566]/30 bg-[#120b08]/60 text-[#e1c477] shadow-xl backdrop-blur-md transition-all hover:border-[#cba956] hover:bg-[#cba956] hover:text-[#160e09] md:left-6 md:h-12 md:w-12"
       >
-        <ChevronLeft
-          className="w-5 h-5 md:w-6 md:h-6"
-          strokeWidth={2}
-        />
+        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
 
-      {/* ---------------------------------------- */}
-      {/* RIGHT BUTTON */}
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
+      {/* NEXT */}
+      {/* ================================================== */}
 
       <button
         onClick={scrollNext}
         aria-label="Next slide"
-        className="absolute z-30 right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1c100b]/70 backdrop-blur-md border border-[#e0bf6c]/40 text-[#f0d48a] flex items-center justify-center shadow-xl hover:bg-[#8b1e1e] hover:border-[#8b1e1e] transition-all"
+        className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#d5b566]/30 bg-[#120b08]/60 text-[#e1c477] shadow-xl backdrop-blur-md transition-all hover:border-[#cba956] hover:bg-[#cba956] hover:text-[#160e09] md:right-6 md:h-12 md:w-12"
       >
-        <ChevronRight
-          className="w-5 h-5 md:w-6 md:h-6"
-          strokeWidth={2}
-        />
+        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
       </button>
 
-      {/* ---------------------------------------- */}
-      {/* SLIDE INDICATOR */}
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
+      {/* BOTTOM CONTROLS */}
+      {/* ================================================== */}
 
-      <div className="absolute z-30 bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+      <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 items-center gap-3">
 
         {slides.map((_, index) => (
+
           <button
             key={index}
             onClick={() => emblaApi?.scrollTo(index)}
             aria-label={`Go to slide ${index + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
+            className={`h-1.5 rounded-full transition-all duration-500 ${
               selectedIndex === index
-                ? "w-8 bg-[#e1bf69]"
-                : "w-2 bg-white/50 hover:bg-white/80"
+                ? "w-9 bg-[#dfc06d]"
+                : "w-2 bg-white/35 hover:bg-white/70"
             }`}
           />
+
         ))}
 
       </div>
 
-      {/* ---------------------------------------- */}
-      {/* SLIDE COUNTER */}
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
+      {/* COUNTER */}
+      {/* ================================================== */}
 
-      <div className="absolute bottom-6 right-5 md:right-10 z-30 hidden sm:flex items-center gap-2 text-xs text-[#ead7aa]">
-        <span className="font-bold">
+      <div className="absolute bottom-5 right-5 z-30 hidden items-center gap-2 text-[10px] md:right-8 md:flex">
+
+        <span className="font-bold text-[#e4ca7e]">
           {String(selectedIndex + 1).padStart(2, "0")}
         </span>
 
-        <span className="w-8 h-px bg-[#d4ad58]/50" />
+        <span className="h-px w-8 bg-[#cba956]/50" />
 
-        <span className="text-[#a99b8b]">
+        <span className="text-[#8d8175]">
           {String(slides.length).padStart(2, "0")}
         </span>
+
       </div>
 
     </section>
   );
 }
-

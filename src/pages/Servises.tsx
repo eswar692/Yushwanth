@@ -1,8 +1,10 @@
 import {
-  Phone,
-  MessageCircle,
-  Sparkles,
   ArrowRight,
+  CheckCircle2,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  Star,
 } from "lucide-react";
 
 import {
@@ -56,153 +58,181 @@ const services = [
   },
 ];
 
-
-const reverse = services.reverse()
-
 export default function Services() {
   return (
-    <main className="relative overflow-hidden bg-[#f7f3eb]">
+    <main className="relative overflow-hidden bg-[#f5f0e7]">
 
-      {/* ================================================= */}
+      {/* ================================================== */}
+      {/* BACKGROUND DECORATION */}
+      {/* ================================================== */}
+
+      <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-[#cba956]/8 blur-[110px]" />
+
+      <div className="pointer-events-none absolute -left-40 top-[850px] h-[450px] w-[450px] rounded-full bg-[#8b1e1e]/5 blur-[100px]" />
+
+      {/* ================================================== */}
       {/* HERO */}
-      {/* ================================================= */}
+      {/* ================================================== */}
 
-      <section className="relative bg-[#21140e] py-16 md:py-24 px-5 overflow-hidden">
+      <section className="relative overflow-hidden bg-[#120c08] px-5 py-20 md:px-8 md:py-28">
 
-        {/* Decorative glow */}
+        {/* Background glow */}
+        <div className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#cba956]/10 blur-[110px]" />
 
-        <div className="absolute -top-60 -right-60 w-[650px] h-[650px] rounded-full bg-[#c9a45b]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-60 -left-40 h-[600px] w-[600px] rounded-full bg-[#8b1e1e]/10 blur-[110px]" />
 
-        <div className="absolute -bottom-60 -left-60 w-[650px] h-[650px] rounded-full bg-[#8b1e1e]/10 blur-3xl" />
+        {/* Subtle center glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#cba956]/5 blur-[100px]" />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
 
-          <div className="flex items-center justify-center gap-2 mb-5">
+          {/* Label */}
+          <div className="mb-6 flex items-center justify-center gap-3">
 
-            <Sparkles className="w-4 h-4 text-[#dfbd6b]" />
+            <span className="h-px w-10 bg-[#cba956]/70" />
 
-            <span className="text-xs md:text-sm font-bold tracking-[0.22em] text-[#d5b260]">
-              OUR SERVICES
+            <Sparkles className="h-4 w-4 text-[#d9b867]" />
+
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d4b465] md:text-xs">
+              Our Services
             </span>
 
-            <Sparkles className="w-4 h-4 text-[#dfbd6b]" />
+            <Sparkles className="h-4 w-4 text-[#d9b867]" />
+
+            <span className="h-px w-10 bg-[#cba956]/70" />
 
           </div>
 
-          <h1 className="montserrat text-4xl md:text-6xl font-extrabold text-[#fff8e9] leading-tight">
+          {/* Heading */}
+          <h1 className="montserrat text-4xl font-extrabold leading-[1.12] tracking-tight text-[#f9efdc] sm:text-5xl md:text-6xl">
 
             Traditional Guidance
-            <span className="block text-[#e1be68]">
+
+            <span className="mt-2 block text-[#d9b867]">
               For Life's Important Moments
             </span>
 
           </h1>
 
-          <div className="flex items-center justify-center gap-3 my-6">
+          {/* Divider */}
+          <div className="my-7 flex items-center justify-center gap-3">
 
-            <span className="w-20 h-px bg-[#c9a45b]" />
+            <span className="h-px w-16 bg-[#cba956]/60 md:w-20" />
 
-            <span className="w-2 h-2 rotate-45 bg-[#c9a45b]" />
+            <span className="h-2 w-2 rotate-45 bg-[#cba956]" />
 
-            <span className="w-20 h-px bg-[#c9a45b]" />
+            <span className="h-px w-16 bg-[#cba956]/60 md:w-20" />
 
           </div>
 
-          <p className="open-sans text-base md:text-lg leading-8 text-[#c8b9aa] max-w-2xl mx-auto">
-            Explore our range of personalized astrology and spiritual
-            guidance services for relationships, marriage, career,
-            family, business, and personal concerns.
+          <p className="mx-auto max-w-2xl text-sm leading-7 text-[#a99b8d] md:text-base md:leading-8">
+            Explore personalized astrology and spiritual guidance for
+            relationships, marriage, career, family, business and personal
+            concerns.
           </p>
 
-        </div>
+          {/* Small trust line */}
+          <div className="mt-8 flex items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-[#806e58]">
+            <Star className="h-3 w-3 fill-[#cba956] text-[#cba956]" />
+            Traditional Guidance Since 1956
+            <Star className="h-3 w-3 fill-[#cba956] text-[#cba956]" />
+          </div>
 
+        </div>
       </section>
 
-      {/* ================================================= */}
-      {/* SERVICES */}
-      {/* ================================================= */}
+      {/* ================================================== */}
+      {/* SERVICES SECTION */}
+      {/* ================================================== */}
 
-      <section className="relative py-14 md:py-20 px-5">
+      <section className="relative px-5 py-16 md:px-8 md:py-24">
 
-        {/* Soft background glow */}
+        <div className="relative z-10 mx-auto max-w-[1250px]">
 
-        <div className="absolute top-20 left-0 w-80 h-80 rounded-full bg-[#c9a45b]/5 blur-3xl pointer-events-none" />
+          {/* ================================================== */}
+          {/* SECTION HEADING */}
+          {/* ================================================== */}
 
-        <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#8b1e1e]/5 blur-3xl pointer-events-none" />
+          <div className="mx-auto mb-14 max-w-2xl text-center">
 
-        <div className="relative z-10 max-w-[1200px] mx-auto">
-
-          {/* Section intro */}
-
-          <div className="text-center max-w-2xl mx-auto mb-12">
-
-            <p className="text-xs font-bold tracking-[0.2em] text-[#96702f]">
-              AREAS OF GUIDANCE
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#96702f]">
+              Areas Of Guidance
             </p>
 
-            <h2 className="montserrat mt-3 text-3xl md:text-4xl font-extrabold text-[#291911]">
+            <h2 className="montserrat mt-3 text-3xl font-extrabold tracking-tight text-[#291911] md:text-4xl">
               How We Can Help
             </h2>
 
-            <div className="flex items-center justify-center gap-3 my-5">
+            <div className="my-5 flex items-center justify-center gap-3">
 
-              <span className="w-14 h-px bg-[#c9a45b]" />
+              <span className="h-px w-12 bg-[#cba956]" />
 
-              <span className="w-2 h-2 rotate-45 bg-[#c9a45b]" />
+              <span className="h-2 w-2 rotate-45 bg-[#cba956]" />
 
-              <span className="w-14 h-px bg-[#c9a45b]" />
+              <span className="h-px w-12 bg-[#cba956]" />
 
             </div>
 
+            <p className="text-sm leading-7 text-[#796c60]">
+              Explore the areas where personalized and traditional guidance
+              may help you gain greater clarity.
+            </p>
+
           </div>
 
-          {/* ================================================= */}
+          {/* ================================================== */}
           {/* SERVICE GRID */}
-          {/* ================================================= */}
+          {/* ================================================== */}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
 
-            {reverse
-            .map((service, index) => (
+            {services.map((service, index) => (
 
               <article
-                key={index}
-                className="group relative overflow-hidden rounded-[26px] bg-white border border-[#e1d6c6] shadow-[0_12px_40px_rgba(52,35,22,0.08)] hover:shadow-[0_20px_55px_rgba(52,35,22,0.15)] hover:-translate-y-2 transition-all duration-500"
+                key={service.name}
+                className="group relative overflow-hidden rounded-[28px] border border-[#ded3c3] bg-[#fffdf9] shadow-[0_15px_45px_rgba(52,35,22,0.07)] transition-all duration-500 hover:-translate-y-2 hover:border-[#cba956]/40 hover:shadow-[0_25px_65px_rgba(52,35,22,0.14)]"
               >
 
-                {/* Image */}
+                {/* ================================================== */}
+                {/* IMAGE */}
+                {/* ================================================== */}
 
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-[270px] overflow-hidden">
 
                   <img
                     src={service.img}
                     alt={service.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
 
-                  {/* Image overlay */}
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#120c08]/90 via-[#120c08]/15 to-transparent" />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#21140e]/80 via-[#21140e]/10 to-transparent" />
+                  {/* Top number */}
+                  <div className="absolute left-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-[#d9b867]/30 bg-[#120c08]/70 backdrop-blur-md">
 
-                  {/* Number */}
-
-                  <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-[#21140e]/85 backdrop-blur-sm border border-[#dfbd6b]/40 flex items-center justify-center">
-
-                    <span className="text-xs font-bold text-[#e1c26f]">
+                    <span className="text-[10px] font-bold text-[#e0c477]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
                   </div>
 
+                  {/* Hover arrow */}
+                  <div className="absolute right-5 top-5 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full border border-white/15 bg-black/20 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+
+                    <ArrowRight className="h-4 w-4 text-white" />
+
+                  </div>
+
                   {/* Image title */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
 
-                  <div className="absolute bottom-5 left-5 right-5">
-
-                    <p className="text-[9px] tracking-[0.18em] font-bold text-[#e1c26f]">
-                      {service.short.toUpperCase()}
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#d9b867]">
+                      {service.short}
                     </p>
 
-                    <h3 className="mt-1 montserrat text-xl font-extrabold text-white">
+                    <h3 className="montserrat mt-1 text-xl font-extrabold text-white">
                       {service.name}
                     </h3>
 
@@ -210,45 +240,55 @@ export default function Services() {
 
                 </div>
 
-                {/* Content */}
+                {/* ================================================== */}
+                {/* CONTENT */}
+                {/* ================================================== */}
 
                 <div className="p-6">
 
-                  <p className="open-sans text-sm leading-7 text-[#6d6056] min-h-[84px]">
+                  <p className="min-h-[84px] text-sm leading-7 text-[#6d6056]">
                     {service.desc}
                   </p>
 
                   {/* Divider */}
+                  <div className="my-5 h-px bg-[#e9e0d4]" />
 
-                  <div className="h-px bg-[#ece4d8] my-5" />
+                  {/* Feature */}
+                  <div className="mb-5 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-[#8b7968]">
 
-                  {/* Actions */}
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#b58a3d]" />
+
+                    Personalized consultation
+
+                  </div>
+
+                  {/* ================================================== */}
+                  {/* ACTIONS */}
+                  {/* ================================================== */}
 
                   <div className="grid grid-cols-2 gap-3">
 
                     {/* Call */}
-
                     <a
                       href={`tel:${phone_number}`}
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#8b1e1e] text-white text-sm font-bold hover:bg-[#a32727] hover:-translate-y-0.5 transition-all shadow-sm"
+                      className="group/btn flex items-center justify-center gap-2 rounded-xl bg-[#8b1e1e] py-3 text-xs font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#a32727] hover:shadow-lg"
                     >
 
-                      <Phone className="w-4 h-4" />
+                      <Phone className="h-4 w-4 transition-transform group-hover/btn:rotate-12" />
 
                       Call
 
                     </a>
 
                     {/* WhatsApp */}
-
                     <a
                       href={`https://wa.me/${whatsapp_number}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl border border-[#315d3c]/25 bg-[#315d3c]/5 text-[#315d3c] text-sm font-bold hover:bg-[#315d3c] hover:text-white transition-all"
+                      className="group/btn flex items-center justify-center gap-2 rounded-xl border border-[#cba956]/30 bg-[#cba956]/5 py-3 text-xs font-bold text-[#80652d] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#cba956]/15"
                     >
 
-                      <MessageCircle className="w-4 h-4" />
+                      <MessageCircle className="h-4 w-4" />
 
                       WhatsApp
 
@@ -258,9 +298,8 @@ export default function Services() {
 
                 </div>
 
-                {/* Bottom gold line */}
-
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8b1e1e] via-[#c9a45b] to-[#8b1e1e] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Bottom luxury line */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-[#8b1e1e] via-[#cba956] to-[#8b1e1e] transition-transform duration-500 group-hover:scale-x-100" />
 
               </article>
 
@@ -269,67 +308,71 @@ export default function Services() {
           </div>
 
         </div>
-
       </section>
 
-      {/* ================================================= */}
+      {/* ================================================== */}
       {/* CONSULTATION CTA */}
-      {/* ================================================= */}
+      {/* ================================================== */}
 
-      <section className="relative bg-[#21140e] py-14 md:py-18 px-5 overflow-hidden">
+      <section className="relative overflow-hidden bg-[#120c08] px-5 py-16 md:px-8 md:py-20">
 
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-[#c9a45b]/8 blur-3xl" />
+        {/* Glow */}
+        <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-[550px] -translate-x-1/2 rounded-full bg-[#cba956]/8 blur-[100px]" />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
 
-          <div className="flex justify-center mb-4">
+          {/* Icon */}
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#cba956]/25 bg-[#cba956]/5">
 
-            <div className="w-12 h-12 rounded-full border border-[#c9a45b]/30 bg-[#c9a45b]/10 flex items-center justify-center">
-
-              <Sparkles className="w-5 h-5 text-[#dfbd6b]" />
-
-            </div>
+            <Sparkles className="h-5 w-5 text-[#d9b867]" />
 
           </div>
 
-          <p className="text-[10px] tracking-[0.2em] font-bold text-[#c9a45b]">
+          <p className="mt-5 text-[9px] font-bold uppercase tracking-[0.3em] text-[#cba956]">
             {business_name}
           </p>
 
-          <h2 className="montserrat mt-3 text-2xl md:text-4xl font-extrabold text-[#fff8e9]">
+          <h2 className="montserrat mt-3 text-2xl font-extrabold text-[#f9efdc] md:text-4xl">
             Looking For Personal Guidance?
           </h2>
 
-          <p className="mt-3 text-sm md:text-base text-[#bcae9e] max-w-xl mx-auto leading-7">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[#9e9183]">
             Choose a convenient way to connect and discuss your concerns
             privately.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-7">
+          {/* Buttons */}
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
 
             <a
               href={`tel:${phone_number}`}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#8b1e1e] text-white font-bold hover:bg-[#a32727] hover:-translate-y-0.5 transition-all shadow-lg"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#cba956] px-7 py-3.5 text-xs font-bold text-[#160e09] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e0c477] hover:shadow-[0_10px_30px_rgba(203,169,86,0.18)]"
             >
-              <Phone className="w-5 h-5" />
+
+              <Phone className="h-4 w-4" />
+
               Call Now
+
             </a>
 
             <a
               href={`https://wa.me/${whatsapp_number}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-[#c9a45b]/40 text-[#e3c675] font-bold hover:bg-[#c9a45b]/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#cba956]/35 px-7 py-3.5 text-xs font-bold text-[#dec477] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#cba956]/10"
             >
-              <MessageCircle className="w-5 h-5" />
+
+              <MessageCircle className="h-4 w-4" />
+
               Chat on WhatsApp
-              <ArrowRight className="w-4 h-4" />
+
+              <ArrowRight className="h-3.5 w-3.5" />
+
             </a>
 
           </div>
 
         </div>
-
       </section>
 
     </main>

@@ -3,6 +3,8 @@ import {
   MessageCircle,
   Phone,
   Sparkles,
+  Star,
+  ShieldCheck,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -103,71 +105,87 @@ export default function ProblemGrid() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f7f3eb] py-16 md:py-24 px-5">
+    <section className="relative overflow-hidden bg-[#0d0907] py-20 md:py-28 px-5">
+      {/* ========================================= */}
+      {/* BACKGROUND ATMOSPHERE */}
+      {/* ========================================= */}
 
-      {/* ---------------------------------------- */}
-      {/* BACKGROUND DECORATION */}
-      {/* ---------------------------------------- */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#c9a45b]/10 blur-[120px]" />
 
-      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-[#c9a45b]/10 blur-3xl" />
+        <div className="absolute top-[35%] -left-48 w-[500px] h-[500px] rounded-full bg-[#8b1e1e]/10 blur-[130px]" />
 
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-[#8b1e1e]/5 blur-3xl" />
+        <div className="absolute bottom-0 right-[15%] w-72 h-72 rounded-full bg-[#c9a45b]/5 blur-[100px]" />
+      </div>
 
-      <div className="absolute top-1/3 left-10 hidden xl:block w-20 h-20 rounded-full border border-[#c9a45b]/20" />
+      {/* subtle pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(#d8b568 1px, transparent 1px), linear-gradient(90deg, #d8b568 1px, transparent 1px)",
+          backgroundSize: "70px 70px",
+        }}
+      />
 
-      <div className="absolute bottom-20 right-10 hidden xl:block w-28 h-28 rounded-full border border-[#c9a45b]/15" />
+      <div className="relative z-10 max-w-[1450px] mx-auto">
+        {/* ========================================= */}
+        {/* SECTION HEADING */}
+        {/* ========================================= */}
 
-      <div className="relative z-10 max-w-[1400px] mx-auto">
-
-        {/* ======================================== */}
-        {/* HEADING */}
-        {/* ======================================== */}
-
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-14 md:mb-18"
+        >
           {/* Label */}
-          <div className="flex items-center justify-center gap-2 mb-4">
 
-            <Sparkles className="w-4 h-4 text-[#b28535]" />
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="w-12 h-px bg-gradient-to-r from-transparent to-[#c9a45b]" />
 
-            <span className="open-sans text-xs md:text-sm font-bold tracking-[0.22em] text-[#96702f]">
-              AREAS OF GUIDANCE
-            </span>
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#d9b96e]" />
 
-            <Sparkles className="w-4 h-4 text-[#b28535]" />
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-[#d9b96e]">
+                AREAS OF GUIDANCE
+              </span>
 
+              <Sparkles className="w-4 h-4 text-[#d9b96e]" />
+            </div>
+
+            <span className="w-12 h-px bg-gradient-to-l from-transparent to-[#c9a45b]" />
           </div>
 
           {/* Heading */}
-          <h2 className="montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2b1a12] leading-tight">
 
-            Find Guidance For
-            <span className="block text-[#8b1e1e]">
+          <h2 className="montserrat text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.08] text-[#fff8e8]">
+            Guidance For
+            <span className="block mt-2 bg-gradient-to-r from-[#c9a45b] via-[#f0d58b] to-[#b28535] bg-clip-text text-transparent">
               What Matters Most
             </span>
-
           </h2>
 
-          {/* Divider */}
-          <div className="flex items-center justify-center gap-3 my-5">
+          {/* Decorative divider */}
 
-            <span className="w-16 h-[2px] bg-[#c9a45b]" />
+          <div className="flex items-center justify-center gap-3 my-7">
+            <span className="w-16 md:w-24 h-px bg-gradient-to-r from-transparent to-[#c9a45b]" />
 
-            <span className="w-2 h-2 rotate-45 bg-[#c9a45b]" />
+            <span className="w-2.5 h-2.5 rotate-45 border border-[#d9b96e] bg-[#0d0907]" />
 
-            <span className="w-16 h-[2px] bg-[#c9a45b]" />
-
+            <span className="w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-[#c9a45b]" />
           </div>
 
-          <p className="open-sans text-base md:text-lg leading-7 text-[#6c5d51]">
+          <p className="open-sans text-sm md:text-base lg:text-lg leading-7 text-[#b9aa9b]">
             {person_name} offers traditional astrology and spiritual guidance
             for relationships, marriage, family, career and other important
             areas of life.
           </p>
 
-          {/* Tradition tags */}
-          <div className="flex flex-wrap justify-center gap-2 mt-5">
+          {/* Tradition badges */}
 
+          <div className="flex flex-wrap justify-center gap-2.5 mt-7">
             {[
               "Hindu Tradition",
               "Muslim Tradition",
@@ -176,159 +194,182 @@ export default function ProblemGrid() {
             ].map((item) => (
               <span
                 key={item}
-                className="px-3 py-1.5 rounded-full bg-white border border-[#dfd2bf] text-xs md:text-sm font-semibold text-[#695548]"
+                className="px-4 py-2 rounded-full bg-white/[0.04] border border-[#c9a45b]/20 text-[11px] md:text-xs font-semibold text-[#d8c7ad] backdrop-blur-sm"
               >
                 {item}
               </span>
             ))}
-
           </div>
+        </motion.div>
 
-        </div>
-
-        {/* ======================================== */}
+        {/* ========================================= */}
         {/* SERVICE GRID */}
-        {/* ======================================== */}
+        {/* ========================================= */}
 
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.08 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.06,
+                staggerChildren: 0.055,
               },
             },
           }}
         >
-
           {items.map((it, idx) => (
             <motion.article
               key={idx}
               variants={{
                 hidden: {
                   opacity: 0,
-                  y: 25,
+                  y: 30,
                 },
                 visible: {
                   opacity: 1,
                   y: 0,
                 },
               }}
-              transition={{ duration: 0.5 }}
-              className="group relative bg-white rounded-2xl overflow-hidden border border-[#e5dac9] shadow-[0_8px_30px_rgba(52,35,22,0.07)] hover:shadow-[0_18px_45px_rgba(52,35,22,0.14)] hover:-translate-y-1.5 transition-all duration-300"
+              transition={{
+                duration: 0.55,
+                ease: "easeOut",
+              }}
+              className="group relative rounded-2xl overflow-hidden bg-[#17100c] border border-[#c9a45b]/15 shadow-[0_15px_45px_rgba(0,0,0,0.28)] hover:border-[#c9a45b]/45 hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-2 transition-all duration-500"
             >
-
-              {/* -------------------------------- */}
+              {/* ================================= */}
               {/* IMAGE */}
-              {/* -------------------------------- */}
+              {/* ================================= */}
 
-              <div className="relative h-52 overflow-hidden">
-
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={it.img}
                   alt={it.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 
-                {/* Image overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#20120d]/70 via-transparent to-transparent" />
+                {/* Cinematic overlay */}
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0907] via-[#0d0907]/20 to-transparent" />
+
+                <div className="absolute inset-0 bg-[#8b1e1e]/0 group-hover:bg-[#8b1e1e]/10 transition-colors duration-500" />
 
                 {/* Number */}
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-[#20120d]/75 backdrop-blur-sm border border-[#e1bf70]/50 flex items-center justify-center">
 
-                  <span className="text-[11px] font-bold text-[#f0d58b]">
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-[#0d0907]/75 backdrop-blur-md border border-[#d8b568]/40 flex items-center justify-center">
+                  <span className="text-[10px] font-bold tracking-wider text-[#e5c878]">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
+                </div>
 
+                {/* Small icon */}
+
+                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#0d0907]/65 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-[#e0bd6a]" />
                 </div>
 
                 {/* Image title */}
-                <div className="absolute bottom-3 left-4 right-4">
 
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#20120d]/75 backdrop-blur-md border border-[#e1bf70]/30 text-xs font-semibold text-[#f5dda0]">
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d0907]/75 backdrop-blur-md border border-[#d8b568]/30 text-[11px] font-semibold text-[#f2d991]">
+                    <Star className="w-3 h-3 fill-[#d8b568] text-[#d8b568]" />
                     {it.title}
                   </span>
-
                 </div>
-
               </div>
 
-              {/* -------------------------------- */}
+              {/* ================================= */}
               {/* CONTENT */}
-              {/* -------------------------------- */}
+              {/* ================================= */}
 
-              <div className="p-5">
+              <div className="relative p-5 md:p-6">
+                {/* gold top line */}
 
-                <h3 className="montserrat text-lg font-bold text-[#2e1c13]">
+                <div className="absolute top-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-[#c9a45b]/50 to-transparent" />
+
+                <h3 className="montserrat text-lg font-bold text-[#fff6e4] group-hover:text-[#e5c878] transition-colors duration-300">
                   {it.title}
                 </h3>
 
-                <p className="mt-2 text-sm leading-6 text-[#75675c] min-h-[72px]">
+                <p className="mt-2.5 text-sm leading-6 text-[#aa9b8d] min-h-[72px]">
                   {it.desc}
                 </p>
 
                 {/* Explore */}
+
                 <Link
                   to="/services"
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#8b1e1e] hover:text-[#b07b27] transition-colors"
+                  className="mt-5 inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-wide text-[#d5b35f] group/link"
                 >
-                  Explore Guidance
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="relative">
+                    Explore Guidance
+                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#d5b35f] group-hover/link:w-full transition-all duration-300" />
+                  </span>
+
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
                 </Link>
-
               </div>
-
             </motion.article>
           ))}
-
         </motion.div>
 
-        {/* ======================================== */}
-        {/* BOTTOM CTA */}
-        {/* ======================================== */}
+        {/* ========================================= */}
+        {/* CONSULTATION CTA */}
+        {/* ========================================= */}
 
-        <div className="mt-14 md:mt-16 relative overflow-hidden rounded-3xl bg-[#20120d] px-6 py-9 md:px-10 md:py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mt-16 md:mt-20 relative overflow-hidden rounded-[28px] border border-[#c9a45b]/25 bg-gradient-to-br from-[#21150f] via-[#160e0a] to-[#0d0907] px-6 py-10 md:px-12 md:py-12"
+        >
+          {/* glow */}
 
-          {/* Decorative glow */}
-          <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-[#c9a45b]/10 blur-3xl" />
+          <div className="absolute -top-32 -right-20 w-80 h-80 rounded-full bg-[#c9a45b]/10 blur-[100px]" />
 
-          <div className="relative flex flex-col lg:flex-row items-center justify-between gap-7">
+          <div className="absolute -bottom-32 -left-20 w-72 h-72 rounded-full bg-[#8b1e1e]/10 blur-[100px]" />
 
-            <div className="text-center lg:text-left">
+          {/* Decorative border */}
 
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+          <div className="absolute inset-3 rounded-[22px] border border-[#c9a45b]/10 pointer-events-none" />
 
-                <Sparkles className="w-4 h-4 text-[#e0bd6a]" />
+          <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8">
+            {/* Text */}
 
-                <span className="text-xs font-bold tracking-[0.2em] text-[#d8b568]">
+            <div className="text-center lg:text-left max-w-2xl">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
+                <ShieldCheck className="w-4 h-4 text-[#dfbd69]" />
+
+                <span className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-[#d5b35f]">
                   PERSONAL CONSULTATION
                 </span>
-
               </div>
 
-              <h3 className="montserrat text-2xl md:text-3xl font-extrabold text-[#fff7e8]">
-                Not sure which guidance you need?
+              <h3 className="montserrat text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#fff7e8]">
+                Not Sure Which Guidance
+                <span className="block text-[#d8b568]">
+                  You Need?
+                </span>
               </h3>
 
-              <p className="mt-2 text-sm md:text-base text-[#cbbcaf]">
+              <p className="mt-3 text-sm md:text-base leading-6 text-[#b6a79a]">
                 Speak directly with {person_name} and discuss your situation
                 personally.
               </p>
-
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            {/* Buttons */}
 
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href={`tel:${phone_number}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#8b1e1e] text-white montserrat font-bold shadow-lg hover:bg-[#a32727] hover:-translate-y-0.5 transition-all"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#8b1e1e] to-[#a52a2a] text-white montserrat text-sm font-bold shadow-[0_10px_30px_rgba(139,30,30,0.25)] hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(139,30,30,0.35)] transition-all duration-300"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                 Call Now
               </a>
 
@@ -336,36 +377,35 @@ export default function ProblemGrid() {
                 href={`https://wa.me/91${whatsapp_number}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-[#c9a45b]/50 text-[#f1d58e] montserrat font-bold hover:bg-[#c9a45b]/10 transition-all"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-[#c9a45b]/45 bg-[#c9a45b]/5 text-[#e6ca82] montserrat text-sm font-bold hover:bg-[#c9a45b]/10 hover:border-[#c9a45b]/70 hover:-translate-y-1 transition-all duration-300"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 WhatsApp
               </a>
-
             </div>
+          </div>
+        </motion.div>
 
+        {/* ========================================= */}
+        {/* BRAND NOTE */}
+        {/* ========================================= */}
+
+        <div className="mt-9 flex items-center justify-center gap-3">
+          <span className="w-10 md:w-16 h-px bg-gradient-to-r from-transparent to-[#c9a45b]/40" />
+
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-3 h-3 text-[#c9a45b]/60" />
+
+            <p className="text-[10px] md:text-xs tracking-wide text-[#786b60] text-center">
+              Traditional Guidance • Personal Attention • {business_name}
+            </p>
+
+            <Sparkles className="w-3 h-3 text-[#c9a45b]/60" />
           </div>
 
+          <span className="w-10 md:w-16 h-px bg-gradient-to-l from-transparent to-[#c9a45b]/40" />
         </div>
-
-        {/* ======================================== */}
-        {/* BRAND NOTE */}
-        {/* ======================================== */}
-
-        <div className="mt-8 flex items-center justify-center gap-2 text-center">
-
-          <span className="w-8 h-px bg-[#c9a45b]/50" />
-
-          <p className="text-xs md:text-sm text-[#85766a]">
-            Traditional guidance • Personal attention • {business_name}
-          </p>
-
-          <span className="w-8 h-px bg-[#c9a45b]/50" />
-
-        </div>
-
       </div>
     </section>
   );
 }
-

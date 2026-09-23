@@ -7,8 +7,11 @@ import {
   Sparkles,
   ShieldCheck,
   ArrowUpRight,
+  Star,
 } from "lucide-react";
+
 import useInViewOnce from "./InView";
+
 import {
   business_name,
   person_name,
@@ -37,25 +40,33 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#1c100b] text-[#f8f1e5] open-sans">
+    <footer className="relative overflow-hidden bg-[#100b08] text-[#f6efe3] open-sans">
 
-      {/* Background */}
+      {/* ================================================== */}
+      {/* BACKGROUND */}
+      {/* ================================================== */}
+
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.16]"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.10]"
         style={{
           backgroundImage:
             "url('https://i.pinimg.com/736x/0c/27/a4/0c27a427b4d1939110bf6ba9a8c170f5.jpg')",
         }}
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#1c100b]/85" />
+      <div className="absolute inset-0 bg-[#100b08]/90" />
 
-      {/* Decorative glow */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#c89538]/10 blur-3xl" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#8b1e1e]/10 blur-3xl" />
+      {/* Decorative glows */}
+      <div className="pointer-events-none absolute -left-40 -top-40 h-[450px] w-[450px] rounded-full bg-[#cba956]/10 blur-[100px]" />
 
-      {/* Main content */}
+      <div className="pointer-events-none absolute -bottom-40 -right-40 h-[450px] w-[450px] rounded-full bg-[#8b1e1e]/10 blur-[100px]" />
+
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#cba956]/5 blur-[120px]" />
+
+      {/* ================================================== */}
+      {/* MAIN */}
+      {/* ================================================== */}
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 35 }}
@@ -65,46 +76,49 @@ export default function Footer() {
             : { opacity: 0, y: 35 }
         }
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 pt-14 pb-10"
+        className="relative z-10 mx-auto max-w-[1500px] px-5 pb-10 pt-14 md:px-8 md:pt-20"
       >
 
-        {/* ---------------------------------------- */}
-        {/* TOP CTA */}
-        {/* ---------------------------------------- */}
+        {/* ================================================== */}
+        {/* PREMIUM CTA */}
+        {/* ================================================== */}
 
-        <div className="relative overflow-hidden rounded-3xl border border-[#c9a45b]/30 bg-[#281811]/90 px-6 py-8 md:px-10 md:py-9 mb-12">
+        <div className="relative mb-16 overflow-hidden rounded-[28px] border border-[#cba956]/25 bg-gradient-to-br from-[#241710] to-[#17100c]">
 
-          <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-[#c89538]/10 blur-3xl" />
+          {/* Gold glow */}
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#cba956]/10 blur-[70px]" />
 
-          <div className="relative flex flex-col md:flex-row items-center justify-between gap-7">
+          <div className="relative flex flex-col items-center justify-between gap-8 px-6 py-9 md:flex-row md:px-10 md:py-10">
 
+            {/* Left */}
             <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                <Sparkles className="w-5 h-5 text-[#e3bb67]" />
 
-                <p className="text-xs tracking-[0.25em] font-bold text-[#d8b66a]">
-                  PERSONAL GUIDANCE
-                </p>
+              <div className="mb-3 flex items-center justify-center gap-2 md:justify-start">
+                <Sparkles className="h-4 w-4 text-[#d9b867]" />
+
+                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#cba956]">
+                  Personal Guidance
+                </span>
               </div>
 
-              <h2 className="montserrat text-2xl md:text-3xl font-extrabold text-[#fff8ea]">
+              <h2 className="montserrat text-2xl font-extrabold tracking-tight text-[#f8edda] md:text-3xl">
                 Looking for clarity in life?
               </h2>
 
-              <p className="mt-2 text-sm md:text-base text-[#cfc0ae] max-w-2xl">
-                Connect with {person_name} for traditional astrology
-                guidance on relationships, marriage, career and important
-                life decisions.
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#a99b8c] md:text-[15px]">
+                Connect with {person_name} for traditional guidance on
+                relationships, marriage, career and important life decisions.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            {/* Buttons */}
+            <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
 
               <a
                 href={`tel:${phone_number}`}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#8b1e1e] text-white font-bold montserrat shadow-lg hover:bg-[#a12626] hover:-translate-y-0.5 transition-all"
+                className="group flex items-center justify-center gap-2 rounded-full bg-[#cba956] px-7 py-3.5 montserrat text-xs font-bold text-[#160e09] shadow-[0_8px_30px_rgba(203,169,86,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e0c477]"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="h-4 w-4 transition-transform group-hover:rotate-12" />
                 Call Now
               </a>
 
@@ -112,9 +126,9 @@ export default function Footer() {
                 href={`https://wa.me/91${whatsapp_number}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-[#c9a45b]/50 text-[#f1d58e] font-bold montserrat hover:bg-[#c9a45b]/10 transition-all"
+                className="flex items-center justify-center gap-2 rounded-full border border-[#cba956]/40 px-7 py-3.5 montserrat text-xs font-bold text-[#dfc477] transition-all duration-300 hover:bg-[#cba956]/10"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="h-4 w-4" />
                 WhatsApp
               </a>
 
@@ -122,122 +136,174 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ---------------------------------------- */}
+        {/* ================================================== */}
         {/* FOOTER GRID */}
-        {/* ---------------------------------------- */}
+        {/* ================================================== */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
 
+          {/* ================================================== */}
           {/* ABOUT */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
+          {/* ================================================== */}
 
-              <img
-                src="https://i.pinimg.com/736x/3d/e1/f9/3de1f95bebee24bac17e12b23ea11248.jpg"
-                alt={`${business_name} Logo`}
-                className="w-14 h-14 rounded-xl object-cover border border-[#c9a45b]/60 shadow-lg"
-              />
+          <div>
+
+            <div className="mb-6 flex items-center gap-3">
+
+              <div className="relative rounded-full border border-[#cba956] p-[3px]">
+
+                <div className="absolute -inset-1 rounded-full bg-[#cba956]/10 blur-md" />
+
+                <img
+                  src="https://i.pinimg.com/736x/3d/e1/f9/3de1f95bebee24bac17e12b23ea11248.jpg"
+                  alt={`${business_name} Logo`}
+                  className="relative h-14 w-14 rounded-full object-cover"
+                />
+
+              </div>
 
               <div>
-                <h2 className="montserrat font-extrabold text-xl text-[#fff7e8]">
+                <h2 className="montserrat text-lg font-extrabold text-[#f4e8d2] md:text-xl">
                   {business_name}
                 </h2>
 
-                <p className="text-[10px] tracking-[0.18em] text-[#cba85d] font-semibold mt-1">
-                  ESTABLISHED 1956
-                </p>
+                <div className="mt-1 flex items-center gap-2">
+                  <span className="h-px w-5 bg-[#cba956]" />
+
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#b99b58]">
+                    Since 1956
+                  </p>
+                </div>
               </div>
 
             </div>
 
-            <p className="text-sm md:text-base leading-7 text-[#c9bbab]">
-              Traditional astrology consultations led by{" "}
-              <span className="text-[#e1c477] font-semibold">
+            <p className="text-sm leading-7 text-[#a99b8d]">
+              Traditional guidance led by{" "}
+              <span className="font-semibold text-[#d9bc70]">
                 {person_name}
               </span>
               , offering personalized guidance for relationships, marriage,
               career, family and life's important decisions.
             </p>
 
-            <div className="mt-5 flex items-center gap-2 text-sm text-[#d6c8b8]">
-              <ShieldCheck className="w-5 h-5 text-[#d5ad58]" />
-              Private • Personal • Traditional
+            <div className="mt-6 flex items-center gap-2 text-xs text-[#b8aa9b]">
+              <ShieldCheck className="h-4 w-4 text-[#cba956]" />
+              <span>Private • Personal • Traditional</span>
             </div>
+
           </div>
 
+          {/* ================================================== */}
           {/* SERVICES */}
+          {/* ================================================== */}
+
           <div>
-            <h3 className="montserrat text-xl font-bold text-[#f4d78f] mb-5">
-              Our Services
-            </h3>
+
+            <div className="mb-6 flex items-center gap-2">
+              <Star className="h-3.5 w-3.5 fill-[#cba956] text-[#cba956]" />
+
+              <h3 className="montserrat text-sm font-bold uppercase tracking-[0.18em] text-[#dec273]">
+                Our Services
+              </h3>
+            </div>
 
             <ul className="space-y-3">
+
               {services.map((service, idx) => (
                 <li key={idx}>
+
                   <a
                     href="/services"
-                    className="group flex items-start gap-2 text-sm text-[#cbbdaf] hover:text-[#f0d27f] transition-colors"
+                    className="group flex items-start gap-2.5 text-sm text-[#a99b8d] transition-colors hover:text-[#e0c477]"
                   >
-                    <ChevronRight className="w-4 h-4 mt-0.5 shrink-0 text-[#b58a3d] group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-[#8e703b] transition-transform group-hover:translate-x-1 group-hover:text-[#cba956]" />
 
                     <span>{service}</span>
                   </a>
+
                 </li>
               ))}
+
             </ul>
+
           </div>
 
+          {/* ================================================== */}
           {/* WHY CHOOSE */}
-          <div>
-            <h3 className="montserrat text-xl font-bold text-[#f4d78f] mb-5">
-              Why Choose Us?
-            </h3>
+          {/* ================================================== */}
 
-            <ul className="space-y-3">
+          <div>
+
+            <div className="mb-6 flex items-center gap-2">
+              <Sparkles className="h-3.5 w-3.5 text-[#cba956]" />
+
+              <h3 className="montserrat text-sm font-bold uppercase tracking-[0.18em] text-[#dec273]">
+                Why Choose Us
+              </h3>
+            </div>
+
+            <ul className="space-y-3.5">
+
               {whyChoose.map((item, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-2 text-sm text-[#cbbdaf]"
+                  className="flex items-start gap-2.5 text-sm text-[#a99b8d]"
                 >
-                  <Sparkles className="w-4 h-4 mt-0.5 shrink-0 text-[#b58a3d]" />
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#cba956]" />
 
                   <span>{item}</span>
                 </li>
               ))}
+
             </ul>
 
-            <div className="mt-6 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#c9a45b]/10 border border-[#c9a45b]/20 text-xs text-[#e2c77f]">
-              <Sparkles className="w-3.5 h-3.5" />
-              Trusted Guidance Since 1956
+            {/* Trust badge */}
+            <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-[#cba956]/20 bg-[#cba956]/5 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-wider text-[#d6b967]">
+              <Sparkles className="h-3.5 w-3.5" />
+              Trusted Since 1956
             </div>
+
           </div>
 
+          {/* ================================================== */}
           {/* CONTACT */}
+          {/* ================================================== */}
+
           <div>
-            <h3 className="montserrat text-xl font-bold text-[#f4d78f] mb-5">
-              Contact Us
-            </h3>
+
+            <div className="mb-6 flex items-center gap-2">
+
+              <Phone className="h-3.5 w-3.5 text-[#cba956]" />
+
+              <h3 className="montserrat text-sm font-bold uppercase tracking-[0.18em] text-[#dec273]">
+                Contact
+              </h3>
+
+            </div>
 
             <div className="space-y-3">
 
               {/* Phone */}
               <a
                 href={`tel:${phone_number}`}
-                className="group flex items-center gap-3 p-3.5 rounded-xl bg-[#281811] border border-[#c9a45b]/15 hover:border-[#c9a45b]/40 transition-all"
+                className="group flex items-center gap-3 rounded-2xl border border-[#cba956]/10 bg-[#1a110c] p-3.5 transition-all duration-300 hover:border-[#cba956]/30 hover:bg-[#21160f]"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#8b1e1e]/20 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-[#e0bc68]" />
+
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cba956]/15 bg-[#cba956]/5">
+                  <Phone className="h-4 w-4 text-[#d8b867]" />
                 </div>
 
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-[#998575]">
+                  <p className="text-[9px] uppercase tracking-[0.18em] text-[#75695f]">
                     Call
                   </p>
 
-                  <p className="montserrat text-sm font-semibold text-[#f2e6d2]">
+                  <p className="mt-1 montserrat text-sm font-semibold text-[#e6d9c6]">
                     {phone_number}
                   </p>
                 </div>
+
               </a>
 
               {/* WhatsApp */}
@@ -245,88 +311,101 @@ export default function Footer() {
                 href={`https://wa.me/91${whatsapp_number}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 p-3.5 rounded-xl bg-[#281811] border border-[#c9a45b]/15 hover:border-[#c9a45b]/40 transition-all"
+                className="group flex items-center gap-3 rounded-2xl border border-[#cba956]/10 bg-[#1a110c] p-3.5 transition-all duration-300 hover:border-[#cba956]/30 hover:bg-[#21160f]"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#7a8f45]/20 flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-[#d7c477]" />
+
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cba956]/15 bg-[#cba956]/5">
+                  <MessageCircle className="h-4 w-4 text-[#d8b867]" />
                 </div>
 
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-[#998575]">
+                  <p className="text-[9px] uppercase tracking-[0.18em] text-[#75695f]">
                     WhatsApp
                   </p>
 
-                  <p className="montserrat text-sm font-semibold text-[#f2e6d2]">
+                  <p className="mt-1 montserrat text-sm font-semibold text-[#e6d9c6]">
                     +91 {whatsapp_number}
                   </p>
                 </div>
+
               </a>
 
             </div>
 
-            <p className="mt-5 text-xs leading-5 text-[#998b7e]">
-              Consultations available online. Reach out to discuss your
+            <p className="mt-5 text-xs leading-5 text-[#776c62]">
+              Online consultations available. Reach out to discuss your
               requirements and schedule a consultation.
             </p>
+
           </div>
+
         </div>
 
-        {/* ---------------------------------------- */}
+        {/* ================================================== */}
         {/* DIVIDER */}
-        {/* ---------------------------------------- */}
+        {/* ================================================== */}
 
-        <div className="my-10 h-px bg-gradient-to-r from-transparent via-[#c9a45b]/30 to-transparent" />
+        <div className="my-12 flex items-center gap-4">
 
-        {/* ---------------------------------------- */}
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#cba956]/20" />
+
+          <Sparkles className="h-3.5 w-3.5 text-[#8d703e]" />
+
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#cba956]/20" />
+
+        </div>
+
+        {/* ================================================== */}
         {/* LEGAL */}
-        {/* ---------------------------------------- */}
+        {/* ================================================== */}
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
 
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
 
             <a
               href="/privacy-policy"
-              className="text-[#bcae9f] hover:text-[#f1d17c] transition-colors"
+              className="text-[#82766b] transition-colors hover:text-[#d7b967]"
             >
               Privacy Policy
             </a>
 
-            <span className="text-[#59483c]">•</span>
+            <span className="text-[#493b31]">•</span>
 
             <a
               href="/terms"
-              className="text-[#bcae9f] hover:text-[#f1d17c] transition-colors"
+              className="text-[#82766b] transition-colors hover:text-[#d7b967]"
             >
               Terms of Service
             </a>
 
           </div>
 
-          <p className="text-xs text-[#8e8176] text-center md:text-right">
+          <p className="text-center text-[11px] text-[#675c53] md:text-right">
             © {new Date().getFullYear()} {business_name}. All Rights Reserved.
           </p>
 
         </div>
+
       </motion.div>
 
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
       {/* DEVELOPER BAR */}
-      {/* ---------------------------------------- */}
+      {/* ================================================== */}
 
-      <div className="relative z-20 border-t border-[#c9a45b]/10 bg-[#120a07]">
+      <div className="relative z-20 border-t border-[#cba956]/10 bg-[#0b0705]">
 
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mx-auto flex max-w-[1500px] flex-col items-center justify-between gap-2 px-5 py-4 sm:flex-row md:px-8">
 
-          <p className="text-xs md:text-sm text-[#85776c] text-center sm:text-left">
+          <p className="text-center text-[10px] text-[#62574e] sm:text-left md:text-xs">
             Designed & Developed by{" "}
             <a
               href="https://wa.me/918886921826?text=Hello%20Pro%20Daddy%20Agency"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-[#d8b568] hover:text-[#f3d98b] transition-colors"
+              className="font-semibold text-[#b99951] transition-colors hover:text-[#e1c477]"
             >
-              Eswar 
+              Eswar
             </a>
           </p>
 
@@ -334,13 +413,15 @@ export default function Footer() {
             href="https://www.astrologercenter.in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-1 text-xs text-[#85776c] hover:text-[#d8b568] transition-colors"
+            className="group flex items-center gap-1 text-[10px] text-[#62574e] transition-colors hover:text-[#c9aa5d] md:text-xs"
           >
             astrologercenter.in
-            <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
 
         </div>
+
       </div>
 
     </footer>
