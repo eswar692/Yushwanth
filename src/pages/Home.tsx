@@ -311,7 +311,7 @@ const AboutAstrologer = () => {
             <div className="relative w-full h-full overflow-hidden rounded-[28px] bg-[#eee5d6] shadow-[0_25px_70px_rgba(45,27,18,0.18)]">
 
               <img
-                src="https://i.pinimg.com/736x/5e/77/5d/5e775da1dcfbb1d27175de713a84372a.jpg"
+                src="https://i.pinimg.com/736x/5e/77/5d/5e775da1dcfbb1d27175de713a84372a.jpg "
                 alt={`${person_name} - Astrologer`}
                 className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
               />

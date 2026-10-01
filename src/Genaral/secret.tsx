@@ -1,8 +1,8 @@
-export const phone_number = "+916363973286"
-export const whatsapp_number = "916363973286"
+export const phone_number = "6363973286"
+export const whatsapp_number = "6363973286"
 
-export const business_name = "Adhishakthi Astrology"
-export const person_name = "Adhishakthi Astrology"
+export const business_name = "Adishakthi Astrology"
+export const person_name = "Adishakthi Astrology"
 
 export const email_address = "";
 
